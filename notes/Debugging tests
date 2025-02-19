@@ -1,0 +1,18 @@
+Enable Debug Mode in Eclipse (Run Configurations)
+----------------------------------------------------
+1. Right-click on the test class → Run As → Run Configurations
+2. Go to the "Environment" tab
+3. Click "Add" →
+
+Variable: PWDEBUG
+Value: 1
+Click Apply → Run
+This will start Playwright in debug mode inside Eclipse.
+
+Run a test from a specific breakpoint
+----------------------------------------
+Insert the following line at the desired point in your test:
+page.pause();
+
+Run your tests in debug mode. 
+Clicking the "Resume" button in the Inspector will run the test and only stop on the page.pause().

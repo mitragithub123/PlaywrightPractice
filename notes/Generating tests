@@ -1,0 +1,37 @@
+Generating tests
+====================
+Running Codegen
+------------------
+Navigate to the project folder using the command prompt.
+Run the following command:
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen demo.playwright.dev/todomvc"
+
+Recording a test
+-----------------
+Automatic Action Recording – Clicks, typing, navigation, and interactions are automatically recorded.
+'assert visibility' to assert that an element is visible
+'assert text' to assert that an element contains specific text
+'assert value' to assert that an element has a specific value
+	
+Generating locators
+---------------------- 	
+Playwright generates reliable locators (CSS, XPath, getByRole(), etc.).
+
+Emulate viewport size
+------------------------
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen --viewport-size='800,600' playwright.dev"
+
+Emulate devices
+----------------
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args='codegen --device="iPhone 13" playwright.dev'
+
+Emulate color scheme
+---------------------
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="codegen --color-scheme=dark playwright.dev"
+
+Emulate geolocation, language and timezone
+-------------------------------------------
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args='codegen --timezone="Europe/Rome" --geolocation="41.890221,12.492348" --lang="it-IT" bing.com/maps'
+
+Reference
+https://playwright.dev/java/docs/codegen#recording-a-test
