@@ -26,7 +26,7 @@ public class LocatorDemo5 {
 		String locator1 = page.locator("'New Customer'").textContent();
 		System.out.println(locator1);
 		// Same
-		String locator2 = page.locator("h2 >> text=New Customer").textContent();
+		String locator2 = page.locator("h2 >> text=New Customer").textContent();//  <h2> elements that contain the text "New Customer"
 		System.out.println(locator2);
 		// Same
 		String locator3 = page.locator("div#content h2 >> text=New Customer").textContent();

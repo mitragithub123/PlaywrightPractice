@@ -2,6 +2,7 @@ package locators;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.BrowserContext;
@@ -43,13 +44,17 @@ public class LocatorDemo3 {
 		// Method 3-Using Streams (Method Reference)
 		options.forEach(op -> System.out.println(op));
 
-		// Method 4-Using Streams (Method Reference)
+		// Method 4-Using Streams (Method Reference Shortcut)
 		options.forEach(System.out::println);
 
 		// Method 5-Using Streams with forEachOrdered
 		options.stream().forEachOrdered(System.out::println);
 
-		// Method 6-Using an Iterator
+		// Method 6-Using Streams (Collecting in to a list)
+		List<String> optionsText = options.stream().collect(Collectors.toList());
+		System.out.println(optionsText);
+
+		// Method 7-Using an Iterator
 		Iterator<String> itr = options.iterator();
 		while (itr.hasNext()) {
 			System.out.println(itr.next());
