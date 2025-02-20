@@ -11,7 +11,7 @@ import com.microsoft.playwright.Playwright;
  * @author mitrabhanu
  * @created 20-Feb-2025
  */
-public class LocatorDemo1 {
+public class LocatorDemo2 {
 
 	public static void main(String[] args) {
 		Playwright playwright = Playwright.create();
@@ -19,10 +19,13 @@ public class LocatorDemo1 {
 
 		BrowserContext context = browser.newContext();
 		Page page = context.newPage();
-		page.navigate("https://www.orangehrm.com/en/30-day-free-trial");
-		// Single element
-		Locator locator = page.locator("text=Get Your Free Trial");
-		locator.click();
+		page.navigate("https://academy.naveenautomationlabs.com/");
+		// Multiple element
+		Locator locator = page.locator("text=Courses");
+		int locCount = locator.count();
+		System.out.println(locCount);
+		locator.first().click();
+		//locator.last().click();
 
 	}
 
