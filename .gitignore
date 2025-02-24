@@ -1,0 +1,6 @@
+.settings/
+target/
+.classpath
+.project
+.mvn
+trace.zip/

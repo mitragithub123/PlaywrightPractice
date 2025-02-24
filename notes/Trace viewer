@@ -1,0 +1,42 @@
+Recording a trace
+=====================
+Create a Browser Context and Enable Tracing
+--------------------------------------------------
+BrowserContext browserContext = browser.newContext(new Browser.NewContextOptions().setViewportSize(null));
+// Start tracing before creating / navigating a page.
+browserContext.tracing()
+.start(new Tracing.StartOptions()
+.setScreenshots(true)
+.setSnapshots(true)
+.setSources(true));
+
+Creates a new browser context, simulating an independent browser session.
+Enables tracing with:
+Screenshots – Captures screenshots during execution.
+Snapshots – Captures DOM snapshots for debugging.
+Sources – Includes source code references in the trace file.
+
+Stop Tracing and Save the Trace File
+--------------------------------------
+// Stop tracing and export it into a zip archive.
+browserContext.tracing()
+.stop(new Tracing.StopOptions()
+.setPath(Paths.get("trace.zip"))); // Here we can set trace.zip path
+
+Stops tracing and saves the trace file as trace.zip.
+The trace file contains a complete execution history, which can be analyzed later.
+
+Steps to Use Trace Viewer
+---------------------------------
+1. Open Trace Viewer in Browser
+Go to Playwright Trace Viewer.
+https://trace.playwright.dev/
+Drag and drop the trace.zip file into the viewer.
+
+2. Open Trace File via Command Line (Maven Users)
+Navigate to the project folder using the command prompt.
+Run the following command:
+mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="show-trace trace.zip"
+
+Reference
+https://playwright.dev/java/docs/trace-viewer-intro
